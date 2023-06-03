@@ -8,11 +8,17 @@ static double get_value () {
 	return value;
 }
 
-static void print_msg(string msg, double num = 0, bool mod = 0) {
-	if (mod == 0) {
-		cout << msg << endl;		
-	} else if (mod == 1) {
-		cout << msg << num;
+static void print_msg(string msg, double res = 0, short modificator = 0) {
+	switch (modificator)
+	{
+	case 0:
+		cout << msg << endl;
+		break;
+	case 1:
+		cout << msg << res;
+		break;
+	default:
+		break;
 	}
 }
 
