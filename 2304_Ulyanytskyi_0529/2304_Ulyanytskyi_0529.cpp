@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -8,13 +9,16 @@ static double get_value () {
 	return value;
 }
 
-static void print_msg(string msg, double res = 0, short modificator = 0) {
-	switch (modificator)
+static void print_msg(string msg, short mod = 0, double res = 0) {
+	switch (mod)
 	{
 	case 0:
 		cout << msg << endl;
 		break;
 	case 1:
+		cout << msg;
+		break;
+	case 2:
 		cout << msg << res;
 		break;
 	default:
@@ -41,13 +45,13 @@ int main()
 	print_msg(initial_msg);
 	print_msg(legend);
 
-	print_msg(request_for_opperation);
+	print_msg(request_for_opperation, 1);
 	opperation = static_cast<int>(get_value());
 
 	if (opperation != 0) {
-		print_msg(request_for_number1);
+		print_msg(request_for_number1, 1);
 		number1 = get_value();
-		print_msg(request_for_number2);
+		print_msg(request_for_number2, 1);
 		number2 = get_value();
 	} else if (opperation == 0) {
 		exit_status = true;
@@ -76,7 +80,7 @@ int main()
 		result = number1 / number2;
 		break;
 	case 5:
-		//result = number1 % number2;
+		result = fmod(number1, number2);
 		break;
 	default:
 		exit_status = true;
@@ -85,7 +89,7 @@ int main()
 	}
 
 	if (!exit_status) {
-		print_msg(result_msg, result, 1);
+		print_msg(result_msg, 2, result);
 	}
 
 	return 0;
