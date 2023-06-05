@@ -75,12 +75,18 @@ int main()
 		if (number1 == 0 || number2 == 0) {
 			exit_status = true;
 			print_msg(illigal_msg);
-			break;
-		}
-		result = number1 / number2;
+		} else {
+			result = number1 / number2;
+		}		
 		break;
 	case 5:
-		result = fmod(number1, number2);
+		if (number1 == 0 || number2 == 0) {
+			exit_status = true;
+			print_msg(illigal_msg);
+		} else {
+			result = fmod(number1, number2);
+		}
+		
 		break;
 	default:
 		exit_status = true;
