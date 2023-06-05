@@ -53,13 +53,12 @@ int main()
 		number1 = get_value();
 		print_msg(request_for_number2, 1);
 		number2 = get_value();
-	} else if (opperation == 0) {
-		exit_status = true;
 	}
 
 	switch (opperation)
 	{
 	case 0:
+		exit_status = true;
 		print_msg(exit_msg);
 		break;
 	case 1:
